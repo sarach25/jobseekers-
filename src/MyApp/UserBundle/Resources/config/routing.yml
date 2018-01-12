@@ -1,0 +1,78 @@
+my_app_user_homepage:
+    path:     /
+    defaults: { _controller: MyAppUserBundle:Default:index }
+security_edit_profile:
+    path:     edit
+    defaults: { _controller: FOSUserBundle:Profile:edit }
+security_signup:
+    path:     register
+    defaults: { _controller: FOSUserBundle:Registration:register }
+security_login:
+    path:     login
+    defaults: { _controller: FOSUserBundle:Security:login }
+Affichage:
+    path:     Affichage
+    defaults: { _controller: FOSUserBundle:Affichage:Affichage}
+Page_Membre:
+   path:    /afterloggued
+   defaults: { _controller: MyAppUserBundle:Default:mm }
+security_show_profile:
+     path:     show
+     defaults: { _controller: FOSUserBundle:Profile:show}
+Messageinbox:
+   path: inbox
+   defaults: { _controller: FOSMessageBundle:Message:inbox}
+Messagesent:
+   path: sent
+   defaults: { _controller: FOSMessageBundle:Message:sent}
+Messagedeleted:
+   path: deleted
+   defaults: { _controller: FOSMessageBundle:Message:deleted}
+Messagesearch:
+   path: search
+   defaults: { _controller: FOSMessageBundle:Message:search}
+Messagedelete:
+   path: delete
+   defaults: { _controller: FOSMessageBundle:Message:delete}
+Messageundelete:
+   path: undelete
+   defaults: { _controller: FOSMessageBundle:Message:undelete}
+Messageunthread:
+   path: thread
+   defaults: { _controller: FOSMessageBundle:Message:thread }
+rechercheProfile:
+    path: /rechercher
+    defaults: { _controller: MyAppUserBundle:recherche:rechercherByNomPrenom}
+suivreProfile:
+    path: /suivre/{id}
+    defaults: { _controller: MyAppUserBundle:suivre:suivremembre}
+comp:
+    path: /comp
+    defaults: { _controller: MyAppUserBundle:Competance:ajout}
+comp1:
+    path: /comp1
+    defaults: { _controller: MyAppUserBundle:Competance:ajoutCmp}
+af:
+    path: /af
+    defaults: { _controller: MyAppUserBundle:Competance:affiche}
+compd:
+    path: /compd
+    defaults: { _controller: MyAppUserBundle:Competance:delete}
+compr:
+    path: /compr{id}
+    defaults: { _controller: MyAppUserBundle:Competance:rcd}
+drcd:
+    path: /drcd{id}
+    defaults: { _controller: MyAppUserBundle:Competance:drcd}
+pr:
+    path: /pr{id}
+    defaults: { _controller: MyAppUserBundle:Competance:pr}
+dr:
+    path: /dr{id}
+    defaults: { _controller: MyAppUserBundle:Competance:dr}
+pay:
+    path: /pay
+    defaults: { _controller: MyAppUserBundle:Default:pay}
+delete:
+    path: /delete/{id}
+    defaults: { _controller: MyAppUserBundle:suivre:supprimer}

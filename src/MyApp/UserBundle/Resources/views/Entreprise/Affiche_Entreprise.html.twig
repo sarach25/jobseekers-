@@ -1,0 +1,149 @@
+{% extends "MyAppUserBundle::layout7.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block contenu %}
+    <head>
+
+        <link href="{{ asset('MyApp/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style3.css') }}" rel="stylesheet">
+
+        <style>
+
+
+           p {
+                color: darkslategray;
+            }
+
+        </style>
+    </head>
+    <div class=" text-left">
+
+    <div >
+    <h2>Liste de  entreprise existant </h2>
+
+
+        {% for n in pagination %}
+    <div class="media">
+
+            <div class="thumbnail" >
+                <div class="media-left media-top">
+
+
+                    {% if n.imgentreprise is null %}
+                        <img src="{{ asset('bundles/myappuser/img/dog.jpg') }}" alt="">
+                    {% else %}
+                        <img alt=" " src="data:image/png;base64,{{pics[n.id] }}" height="170" width="160" class="media-object">
+                    {% endif %}
+
+
+
+ </div>
+                <div class="media-body">
+
+                    <h4 class="pull-right">  </h4>
+                    <h4><a href="#">{{ n.nomentreprise}}</a>  </h4>
+                        <p>{{ n.domaine }}</p>
+                        <p> <i class="fa fa-map-marker"></i> {{ n.adresse }} </p>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                      Voir Carte
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">la carte </h4>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div id="">
+
+            {% block map%}
+                {% endblock %}
+
+
+                                    </div>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+            </div>
+
+    </div>
+
+
+    {% endfor %}
+        <div >
+
+
+            <h1>Des recherche similaires </h1>
+
+            {% for m in others %}
+
+
+
+                <div>
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+
+                            <div class="caption">
+                                <h4 class="pull-right"> </h4>
+                                <h4><a href="Page\{{ m.id }}"> Nom :{{ m.nomentreprise }}</a>
+                                </h4>
+
+
+                                <p> Domaine : {{ m.domaine }}</p>
+
+                                <p> Adresse : {{ m.adresse   }}</p>
+
+
+
+                                <p>See more <a target="_blank" href="http://www.bootsnipp.com"> http://bootsnipp.com</a>.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+    </div>
+    <div class="navigation">
+        <ul class="pagination">
+            {{ knp_pagination_render(pagination) }}
+        </ul>
+    </div>
+
+
+
+
+{% endblock contenu %}

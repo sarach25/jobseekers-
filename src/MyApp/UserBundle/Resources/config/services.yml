@@ -1,0 +1,10 @@
+services:
+#    my_app_user.example:
+#        class: MyApp\UserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+services:
+    fos_user.doctrine_registry:
+        alias: doctrine
+    redirect.after.login:
+        class: MyApp\UserBundle\Redirection\AfterLoginRedirection
+        arguments: ["@router"]

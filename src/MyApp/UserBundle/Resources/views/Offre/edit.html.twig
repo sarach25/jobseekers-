@@ -1,0 +1,35 @@
+{% extends "FOSUserBundle::layout10.html.twig" %}
+
+{% block contenu %}
+    {{ form_start(formes, { 'action': path('Ajout_Offre') }) }}
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> Nom entreprise </label>
+            {{ form_widget(formes.nomentreprise, { 'attr': {'class': 'form-control'} }) }}
+
+        </div>
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> Poste</label>
+            {{ form_widget(formes.poste, { 'attr': {'class': 'form-control'} }) }}
+
+        </div>
+    </div>
+
+    </div>
+
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> Domaine</label>
+            {{ form_widget(formes.domaine, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+    </div>
+    <div class="col-sm-6 form-group">
+        <label for="inputnom" class="col-sm-4 control-label"> Contenu</label>
+        {{ form_widget(formes.contenu, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    </div>
+
+
+
+
+    {{ form_end(formes) }}
+{% endblock contenu %}

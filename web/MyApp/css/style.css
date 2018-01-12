@@ -1,0 +1,84 @@
+.form-control{display:block;width:40%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color: #99999a;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}
+.img{
+	position: absolute;
+	left: 10;
+	top:10;
+	width: 9%;
+}
+
+.well{min-height:20px;
+	padding:19px;
+	margin-bottom:20px;
+	background-color:rgba(245, 245, 245, 0);
+	border:1px solid #e3e3e3;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.05);box-shadow:inset 0 1px 1px rgba(0,0,0,.05)}
+.progress {
+	height: 35px;
+
+}
+.progress .skill {
+	font: normal 12px "Open Sans Web";
+	line-height: 35px;
+	padding: 0;
+	margin: 0 0 0 20px;
+	text-transform: uppercase;
+}
+.progress .skill .val {
+	float: right;
+	font-style: normal;
+	margin: 0 20px 0 0;
+}
+
+.progress-bar {
+	text-align: left;
+	transition-duration: 3s;
+}
+.btn, .btn-lg {
+	padding: 10px 16px;
+	font-size: 18px;
+	line-height: 1.3333333;
+	border-radius: 6px;}
+
+/* Padding - just for asthetics on Bootsnipp.com */
+body { margin-top:20px; }
+
+/* CSS for Credit Card Payment form */
+.credit-card-box .panel-title {
+	display: inline;
+	font-weight: bold;
+}
+.credit-card-box .form-control.error {
+	border-color: red;
+	outline: 0;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
+}
+.credit-card-box label.error {
+	font-weight: bold;
+	color: red;
+	padding: 2px 8px;
+	margin-top: 2px;
+}
+.credit-card-box .payment-errors {
+	font-weight: bold;
+	color: red;
+	padding: 2px 8px;
+	margin-top: 2px;
+}
+.credit-card-box label {
+	display: block;
+}
+/* The old "center div vertically" hack */
+.credit-card-box .display-table {
+	display: table;
+}
+.credit-card-box .display-tr {
+	display: table-row;
+}
+.credit-card-box .display-td {
+	display: table-cell;
+	vertical-align: middle;
+	width: 50%;
+}
+/* Just looks nicer */
+.credit-card-box .panel-heading img {
+	min-width: 180px;
+}

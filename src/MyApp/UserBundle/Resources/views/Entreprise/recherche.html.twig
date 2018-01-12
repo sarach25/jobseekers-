@@ -1,0 +1,181 @@
+{% extends "MyAppUserBundle::layout77.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block contenu %}
+    <head>
+
+        <link href="{{ asset('MyApp/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style3.css') }}" rel="stylesheet">
+
+<style>
+    <h4>
+    {
+        color : white;
+    }
+</style>
+    </head>
+
+
+
+<h2 class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown">Sara</a>
+
+    <ul class="dropdown-menu"> <li> Saroura ek  el mzyena </li>
+    <li> tawa t3adeet </li></ul>
+</h2>
+
+
+
+        {% for n in nomentreprise %}
+
+                        <div class="media">
+                            <div class="media-left media-top">
+
+
+                                {% if n.imgentreprise is null %}
+                                    <img src="{{ asset('bundles/myappuser/img/dog.jpg') }}" alt="">
+                                {% else %}
+                                    <img alt=" " src="data:image/png;base64,{{pics[n.id] }}" height="170" width="160" class="media-object">
+                                {% endif %}
+                            </div>
+
+                            <div class="media-body">
+                                <p>    <td >Nom de l'entreprise :{{ n.nomentreprise}}</td>
+                                </p>
+
+                                <p>      <td>Domaine {{ n.domaine }}</td></p>
+
+                                <p>  <td > Adresse {{ n.adresse }}</td></p>
+
+                                <p>   <td> Postulé par :   {{ n.membre.nom }} </td></p>
+
+                            </div>
+                        </div>
+
+
+
+                        <hr>
+
+     {% endfor %}
+
+                    {% for n in domaine %}
+
+
+                        <div class="media">
+                            <div class="media-left media-top">
+
+
+                                {% if n.imgentreprise is null %}
+                                    <img src="{{ asset('bundles/myappuser/img/dog.jpg') }}" alt="">
+                                {% else %}
+                                    <img alt=" " src="data:image/png;base64,{{pics[n.id] }}" height="170" width="160" class="media-object">
+                                {% endif %}
+                            </div>
+
+                            <div class="media-body">
+                                <p>    <td >Nom de l'entreprise :{{ n.nomentreprise}}</td>
+                                </p>
+
+                                <p>      <td>Domaine {{ n.domaine }}</td></p>
+
+                                <p>  <td > Adresse {{ n.adresse }}</td></p>
+                                <p>   <td> Postulé par :   {{ n.membre.nom }} </td></p>
+
+                            </div>
+                        </div>
+
+
+
+                        <hr>
+
+
+
+                    {% endfor %}
+    {% for n in adresse %}
+
+
+        <div class="media">
+            <div class="media-left media-top">
+
+
+                {% if n.imgentreprise is null %}
+                    <img src="{{ asset('bundles/myappuser/img/dog.jpg') }}" alt="">
+                {% else %}
+                    <img alt=" " src="data:image/png;base64,{{pics[n.id] }}" height="170" width="160" class="media-object">
+                {% endif %}
+            </div>
+
+            <div class="media-body">
+                <p>    <td >Nom de l'entreprise :{{ n.nomentreprise}}</td>
+                </p>
+
+                <p>      <td>Domaine {{ n.domaine }}</td></p>
+
+                <p>  <td > Adresse {{ n.adresse }}</td></p>
+                <p>   <td> Postulé par :   {{ n.membre.nom }} </td></p>
+
+
+            </div>
+        </div>
+
+
+
+        <hr>
+
+
+
+    {% endfor %}
+
+    <div >
+
+
+        <h1>Des recherche similaires </h1>
+
+        {% for m in others %}
+
+
+
+            <div>
+
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                            <h4 class="pull-right"> </h4>
+                            <h4><a href="Page\{{ m.id }}"> Nom :{{ m.nomentreprise }}</a>
+                            </h4>
+
+
+                            <p> Domaine : {{ m.domaine }}</p>
+
+                            <p> Adresse : {{ m.adresse   }}</p>
+
+
+
+                            <p>See more <a target="_blank" href="http://www.bootsnipp.com"> http://bootsnipp.com</a>.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+
+
+
+
+
+    <div class="navigation">
+
+        {{ knp_pagination_render(pagination) }}
+        </ul>
+    </div>
+
+
+
+{% endblock contenu %}
+
+

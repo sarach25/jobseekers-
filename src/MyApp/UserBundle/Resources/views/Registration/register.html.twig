@@ -1,0 +1,54 @@
+{% extends "MyAppUserBundle::layout2.html.twig" %}
+
+{% block contenu %}
+    {% trans_default_domain 'FOSUserBundle' %}
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> First Name</label>
+            {{ form_widget(form.nom, { 'attr': {'class': 'form-control','placeholder':'Enter Your First Name Here'} }) }}        </div>
+    <div class="col-sm-6 form-group">
+        <label for="inputnom" class="col-sm-4 control-label"> Last Name</label>
+
+        {{ form_widget(form.prenom, { 'attr': {'class': 'form-control','placeholder':'Enter Your Last Name Here'} }) }}
+    </div></div>
+
+
+
+
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> Email</label>
+            {{ form_widget(form.email, { 'attr': {'class': 'form-control','placeholder':'Enter Your Email Here','type':'EMAIL'} }) }}        </div>
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> User Name</label>
+            {{ form_widget(form.username, { 'attr': {'class': 'form-control','placeholder':'Enter Your User Name Here'} }) }}
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="col-sm-6 form-group">
+
+        <label for="inputnom" class="col-sm-4 control-label"> Password</label>
+        <input type="password" placeholder="Enter Your Password Here.." class="form-control" id="fos_user_registration_form_plainPassword_first" name="fos_user_registration_form[plainPassword][first]" required="required">
+    </div>
+    <div class="col-sm-6 form-group">
+        <label for="inputnom" class="col-sm-4 control-label"> Confirm Password</label>
+        <input type="password" placeholder="Retype Your Password Here.." class="form-control" id="fos_user_registration_form_plainPassword_second" name="fos_user_registration_form[plainPassword][second]" required="required">
+    </div>
+    </div>
+
+
+
+    {{ form_widget(form._token) }}
+
+
+
+
+    <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-default" onclick="myFunction()"/>
+
+
+    </form>
+
+{% endblock contenu %}

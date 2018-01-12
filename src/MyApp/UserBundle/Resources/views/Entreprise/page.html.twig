@@ -1,0 +1,92 @@
+
+
+
+{% extends "MyAppUserBundle::layout7.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block contenu %}
+    <head>
+
+        <link href="{{ asset('MyApp/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style3.css') }}" rel="stylesheet">
+
+
+    </head>
+
+
+        <div class = "" >
+
+            <div class=" ">
+                <div class="media">
+                    <div class=" ">
+                        <div class="thumbnail " >
+
+                            <div class="caption">
+                                <h4 class="pull-right">  </h4>
+
+                                <div class="media">
+                                    <div class="media-left media-top">
+
+
+                                        {% if entreprise.imgentreprise is null %}
+                                            <img src="{{ asset('bundles/myappuser/img/dog.jpg') }}" alt="">
+                                        {% else %}
+                                            <img alt=" " src="data:image/png;base64,{{pics[entreprise.id] }}" height="170" width="160" class="media-object">
+                                        {% endif %}
+                                    </div>
+                                <h4><a href="#">{{ entreprise.nomentreprise}}</a>
+                                    <p>{{ entreprise.domaine }}</p>
+                                    <p>  {{ entreprise.adresse }} </p>
+                                </h4>
+                                <p>See more  <a target="_blank" href="http://www.bootsnipp.com"> http://bootsnipp.com</a>.</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right"></p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+                 <div >
+
+
+        <h1>D'autre entreprises</h1>
+
+        {% for m in others %}
+
+
+
+            <div>
+
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                            <h4 class="pull-right"> </h4>
+                            <h4><a href="Page\{{ m.id }}"> Nom :{{ m.nomentreprise }}</a>
+                            </h4>
+
+
+                            <p> Domaine : {{ m.domaine }}</p>
+
+                            <p> Adresse : {{ m.adresse   }}</p>
+
+
+
+                            <p>See more <a target="_blank" href="http://www.bootsnipp.com"> http://bootsnipp.com</a>.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+
+
+
+{% endblock contenu %}

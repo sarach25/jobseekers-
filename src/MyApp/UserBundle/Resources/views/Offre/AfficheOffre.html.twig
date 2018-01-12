@@ -1,0 +1,160 @@
+{% extends "MyAppUserBundle::layout10.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block contenu %}
+
+    <head></head>
+
+
+            <div class="">
+                <div class="row">
+                    <div class="col-sm-10">
+
+
+
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <!--left col-->
+                        <ul class="list-group" style="color: #222222">
+                            <li class="list-group-item text-muted" contenteditable="false">Profile</li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong class="">First name</strong></span>
+
+                            </li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last name</strong></span>
+                            </li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong class="">User name</strong></span>
+                            </li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong class="">Statu</strong></span>
+                            </li>
+                        </ul>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Contact
+
+
+                                <ul class="list-group" >
+                                    <li class="list-group-item text-muted" contenteditable="false">information</li>
+
+                                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email</strong></span>  </li>
+                                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Phone </strong></span>   </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Country <i class="fa fa-link fa-1x"></i>
+
+                            </div>
+                            <div class="panel-body"><a href="http://bootply.com" class=""><p>
+
+                                    </p></a>
+
+                            </div>
+                        </div>
+
+                        <ul class="list-group" style="color: #222222">
+                            <li class="list-group-item text-muted">More About me<i class="fa fa-dashboard fa-1x"></i>
+
+                            </li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong class="">birth date</strong></span>   </li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong class="">skills number</strong></span>   </li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong class="">Profile recommandation</strong></span> 37</li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong class="">Firends number</strong></span> 0</li>
+                        </ul>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">profile Recommandation</div>
+                            <div class="panel-body">
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--/col-3-->
+                    <div class="col-sm-9" contenteditable="false" style="">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Academic Cursus</div>
+                            <div class="panel-body" style="color: #222222">
+
+
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Professional Cursus</div>
+                            <div class="panel-body" style="color: #222222">
+
+
+
+                            </div>
+                        </div>
+                        <div class="panel panel-default target">
+                            <div class="panel-heading" contenteditable="false">Skill manage</div>
+                            {% for m in offre %}
+
+
+
+                            <div class="pricing">
+
+
+                                <h4><a href="#"> {{ m.nomentreprise}}</a>
+                                </h4>
+
+                                <p> Poste : <td >{{ m.poste }}</td></p>
+                                <p> Domaine : <td >{{ m.domaine }}</td></p>
+
+                                <p> Contenu: <td >{{ m.contenu }}</td></p>
+
+
+
+                                <p>See more <a target="_blank" href="http://www.bootsnipp.com"> http://bootsnipp.com</a>.</p>
+
+                                <div class="ratings">
+
+                                    <p><button type="button" class="btn btn-default btn-lg">
+
+                                            <span class="glyphicon glyphicon-star"></span> Recomander
+                                        </button>
+                                        <button  type ="submit" class="btn btn-default btn-lg">Postuler </button></p>
+
+
+                                </div>
+
+
+
+                            </div>
+
+                            {% endfor %}
+
+
+
+
+
+
+
+
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Resume</div>
+                            <div class="panel-body" style="color: #222222">
+
+                            </div>
+                        </div></div>
+
+
+                    <div id="push"></div>
+                </div>
+
+                <div class="row-fluid">
+                    <div class="span3">
+                        <p>
+
+                        </p>
+                    </div>
+
+                </div>
+
+
+                {% endblock contenu %}

@@ -1,0 +1,115 @@
+{% extends "MyAppUserBundle::layout77.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block contenu %}
+    <head>
+
+        <link href="{{ asset('MyApp/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style3.css') }}" rel="stylesheet">
+
+
+    </head>
+
+    <h3> Welcome Mr {{ app.user.username }} </h3>
+
+
+
+                        {% for m in nomentreprise %}
+
+
+
+                            <div class="media-body">
+
+                        <td >{{ m.nomentreprise}}</td>
+                        <td >{{ m.poste }}</td>
+                        <td>{{ m.domaine }}</td>
+                        <td >{{ m.contenu}}</td>
+
+                            </div>
+
+
+
+                            <hr>
+
+                        {% endfor %}
+                        {% for m in poste %}
+
+
+                            <div class="media-body">
+
+
+                        <td >{{ m.nomentreprise}}</td>
+                        <td >{{ m.poste }}</td>
+                        <td>{{ m.domaine }}</td>
+                        <td >{{ m.contenu}}</td>
+
+                            </div>
+
+
+
+                            <hr>
+
+
+                        {% endfor %}
+
+
+
+
+                        {% for m in domaine %}
+
+                            <div class="media-body">
+
+
+                            <td >{{ m.nomentreprise}}</td>
+                        <td >{{ m.poste }}</td>
+                        <td>{{ m.domaine }}</td>
+                        <td >{{ m.contenu}}</td>
+
+
+                            </div>
+
+
+
+                            <hr>
+
+                        {% endfor %}
+
+
+                        {% for m in contenu %}
+
+
+                            <div class="media-body">
+
+
+
+                            <td >{{ m.nomentreprise}}</td>
+                        <td >{{ m.poste }}</td>
+                        <td>{{ m.domaine }}</td>
+                        <td >{{ m.contenu}}</td>
+
+
+                            </div>
+
+
+
+                            <hr>
+
+                        {% endfor %}
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock contenu %}

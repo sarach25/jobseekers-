@@ -1,0 +1,64 @@
+{% extends "MyAppUserBundle::layout7.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block contenu %}
+    <head>
+
+        <link href="{{ asset('MyApp/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style3.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style4.css') }}" rel="stylesheet">
+        <h1>Update Entreprise</h1>
+    </head>
+
+
+
+    {{ form_start (formes) }}
+
+
+    <div class="col-sm-6 form-group">
+        <label for="inputnom" class="col-sm-4 control-label"> Nom Entreprise</label>
+        {{ form_widget(formes.nomentreprise, { 'attr': {'class': 'form-control'} }) }}
+
+    </div>
+
+    <div class="col-sm-6 form-group">
+        <label for="inputnom" class="col-sm-4 control-label">Domaine</label>
+        {{ form_widget(formes.domaine, { 'attr': {'class': 'form-control'} }) }}
+
+    </div>
+
+
+    <div class="col-sm-6 form-group">
+
+        <label for="inputnom" class="col-sm-4 control-label"> Adresse</label>
+        {{ form_widget(formes.adresse, { 'attr': {'class': 'form-control'} }) }}
+
+    </div>
+
+
+
+    <div class="col-sm-6 form-group">
+
+        <label for="inputnom" class="col-sm-4 control-label">Image</label>
+        {{ form_widget(formes.imgentreprise, { 'attr': {'class': 'form-control' , 'type': 'text'} }) }}
+
+    </div>
+
+
+
+
+
+
+
+
+    <th>{{ form_widget(formes.Modifier, { 'attr': {'class': 'btn btn-default'} }) }}</th>
+
+
+    {{ form_widget(formes._token) }}
+
+
+
+    {{ form_end(formes) }}
+
+
+{% endblock contenu %}

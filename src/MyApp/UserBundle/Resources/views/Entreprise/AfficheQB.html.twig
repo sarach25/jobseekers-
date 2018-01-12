@@ -1,0 +1,41 @@
+{% extends "MyAppUserBundle::layout7.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block contenu %}
+    <head>
+
+        <link href="{{ asset('MyApp/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style3.css') }}" rel="stylesheet">
+
+
+    </head>
+
+<table border="1">
+
+    <tr>
+
+
+        <th> Id</th>
+        <th> Libelle </th>
+        <th> Pays </th>
+
+    </tr>
+    {% for entreprise in m %}
+
+<tr>
+    <td>{{ n.nomentreprise}}</td>
+    <td>{{ n.domaine }}</td>
+    <td>  {{ n.adresse }} </td>
+
+
+</tr>
+
+
+
+
+
+
+    {% endfor %}
+</table>
+{% endblock contenu %}

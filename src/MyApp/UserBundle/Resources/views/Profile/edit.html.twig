@@ -1,0 +1,104 @@
+{% extends "FOSUserBundle::layout1.html.twig" %}
+
+{% block contenu %}
+    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> First Name</label>
+            {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
+
+        </div>
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> Last Name</label>
+            {{ form_widget(form.prenom, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+        </div>
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> Gender</label>
+            {{ form_widget(form.gender, { 'attr': {'class': 'form-control'} }) }}
+
+        </div>
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> Country</label>
+            {{ form_widget(form.states, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <label for="inputnom" class="col-sm-4 control-label"> Email</label>
+                {{ form_widget(form.email, { 'attr': {'class': 'form-control'},'type':'email' }) }}
+
+            </div>
+            <div class="col-sm-6 form-group">
+                <label for="inputnom" class="col-sm-4 control-label"> User Name</label>
+                {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+            </div>
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> Date</label>
+            {{ form_widget(form.date, { 'attr': {'class': 'form-control'} ,'type':'date'}) }}
+
+        </div>
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> Password</label>
+            {{ form_widget(form.current_password, { 'attr': {'class': 'form-control','value':'password' } ,'type':'password'}) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> Phone Number </label>
+            {{ form_widget(form.tel, { 'attr': {'class': 'form-control'} ,'type':'number'}) }}
+            {{ form_widget(form._token) }}
+        </div>
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> CIN</label>
+            {{ form_widget(form.cin, { 'attr': {'class': 'form-control'} ,'type':'number'}) }}
+
+
+        </div>
+        </div>
+    <div class="row">
+    <div class="col-sm-6 form-group">
+        <label for="inputnom" class="col-sm-4 control-label"> Actuel Statu </label>
+        {{ form_widget(form.statutac, { 'attr': {'class': 'form-control'} ,'type':'textarea'}) }}
+        {{ form_widget(form._token) }}
+    </div>
+    <div class="col-sm-6 form-group">
+        <label for="inputnom" class="col-sm-4 control-label"> Academic Cursus</label>
+        {{ form_widget(form.cursusac, { 'attr': {'class': 'form-control'} ,'type':'textarea'}) }}
+
+
+    </div>
+</div>
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> Professional Cursus </label>
+            {{ form_widget(form.cursuspro, { 'attr': {'class': 'form-control'} ,'type':'textarea'}) }}
+
+        </div>
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> Resume</label>
+            {{ form_widget(form.resume, { 'attr': {'class': 'form-control'} ,'type':'textarea'}) }}
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label for="inputnom" class="col-sm-4 control-label"> Images </label>
+            {{ form_widget(form.imgurl, { 'attr': {'class': 'form-control'} ,'type':'file'}) }}
+            {{ form_widget(form._token) }}
+        </div>
+
+    </div>
+<div class="row"> <label for="inputnom" class="col-sm-4 control-label"> </label>
+
+        <input type="submit" class="form-control" value="{{ 'update'|trans }}" />
+</div>
+
+
+
+    {{ form_end(form) }}
+{% endblock contenu %}

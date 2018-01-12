@@ -1,0 +1,17 @@
+{% extends "MyAppUserBundle::layoutredirect.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block contenu %}
+    <a name="about"></a>
+    <div class="intro-header">
+    <div class="container">
+
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="intro-message">
+    <h1>You Are Now Logged</h1>
+    <h2> Welcome Back {{ app.user.nom }} {{ app.user.prenom }} </h2>
+    <hr class="intro-divider">
+
+    <div class="row">
+
+{% endblock %}

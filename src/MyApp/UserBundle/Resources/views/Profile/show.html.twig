@@ -1,0 +1,348 @@
+{% extends "MyAppUserBundle::layoutProfile.html.twig" %}
+
+{% block contenu %}
+    {% trans_default_domain 'FOSUserBundle' %}
+
+<script xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    function recherche()
+    {
+        var nom = document.getElementById('motcle').value ;
+        var xhr= new XMLHttpRequest();
+        xhr.open("POST","{{ path('rechercheProfile') }}",true);
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.send("nom="+nom);
+        xhr.onreadystatechange = result;
+        function result()
+        {
+            document.getElementById("dynamic").innerHTML= xhr.responseText;
+        }
+
+    }
+</script>
+<script>
+    setTimeout(function(){
+        $('.formSentMsg').remove();
+    }, 5000);
+</script>
+<script>
+    $(function(){
+        var text = $('#your_hidden_id').val(); //get the value from that id
+        alert(text);
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('.progress .progress-bar').css("width",
+                function() {
+                    return $(this).attr("aria-valuenow") + "%";
+                }
+        )
+    });
+</script>
+<div class="fos_user_user_show" color="grey">
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <h3>
+            <p class="formSentMsg">
+
+                {{ flashMessage }}
+
+
+            </p>
+        </h3>
+    {% endfor %}
+
+    <div class="container target">
+        <div class="row">
+            <div class="col-sm-10">
+                <h1 class="">{{ user.nom }} {{ user.prenom }}</h1>
+
+                <a href="{{ path('pay') }}" ><button type="button" class="btn btn-success">Pass to premium!</button> </a>
+                <br>
+            </div>
+            <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="{{ asset('MyApp/img/') }}{{ user.imgurl }}"></a>
+
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-3">
+                <!--left col-->
+                <ul class="list-group" style="color: #222222">
+                    <li class="list-group-item text-muted" contenteditable="false">Profile</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">First name</strong></span> {{ user.nom }}</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last name</strong></span> {{ user.prenom }}</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">User name</strong></span> {{ user.username }}
+                    </li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Statu</strong></span> {{ user.Statutac }}
+                    </li>
+                </ul>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Contact
+
+
+                        <ul class="list-group" >
+                            <li class="list-group-item text-muted" contenteditable="false">information</li>
+
+                            <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email</strong></span> {{ user.email }}</li>
+                            <li class="list-group-item text-right"><span class="pull-left"><strong class="">Phone </strong></span> {{ user.tel }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Country <i class="fa fa-link fa-1x"></i>
+
+                    </div>
+                    <div class="panel-body"><a href="http://bootply.com" class=""><p>{{ user.states }}</p></a>
+
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Friends list <i class="fa fa-link fa-1x"></i>
+                        <div class="panel panel-default">
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="width: 50%">friends list</button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title" style="color: black">Friend List</h4>
+                                        </div>
+                                        <div class="modal-body"  style="color: black">
+                                            <div class="row">
+                                            {% for j in mb  %}
+
+                                                <div class="col-sm-6 form-group">
+
+                                                    <img title="profile image" class="img-circle img-responsive" src="{{ asset('MyApp/img/') }}{{ j.imgurl }}" width="20%"></a>
+                                                </div>
+                                                <div class="col-sm-6 form-group">
+                                                    Nom: {{ j.nom }}<br>
+                                                    Prenom: {{ j.prenom }}<br>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <ul class="list-group" style="color: #222222">
+                    <li class="list-group-item text-muted">More About me<i class="fa fa-dashboard fa-1x"></i>
+
+                    </li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">birth date</strong></span> {{ user.date }}</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">skills number</strong></span>
+                            {{ rs|length }}   </li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Profile recommandation</strong></span>  {{ rd|length }} </li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Firends number</strong></span>{{ mb|length }}</li>
+                </ul>
+                <div class="panel panel-default">
+                    <div class="panel-heading">profile Recommandation</div>
+                    <div class="panel-body">
+                        <ul class="list-group" >
+                            {% for x in rd  %}
+                                <li class="list-group-item text-muted" contenteditable="false">{{ x.contenu}}</li>
+
+
+
+                            {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            <!--/col-3-->
+            <div class="col-sm-9" contenteditable="false" style="">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Academic Cursus</div>
+                    <div class="panel-body" style="color: #222222">
+                        {{ user.cursusac }}
+
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Professional Cursus</div>
+                    <div class="panel-body" style="color: #222222">
+                        {{ user.cursuspro }}
+
+                    </div>
+                </div>
+                <div class="panel panel-default target">
+                    <div class="panel-heading" contenteditable="false">Skill manage</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="thumbnail">
+                                    <form method="post" action="{{ path('comp') }}">
+                                        <select class="form-control" name="idc"style="width:100%">
+                                            {% for c in cmp %}
+                                                <option value="{{ c.id }}" >
+                                                    {{ c.nomCompetance}}
+                                                </option>
+
+                                            {% endfor %}
+                                        </select>
+                                        <input type="submit" value="Add" class="form-control" style="width:100%"></br>
+</form>
+                                        <div class="caption">
+                                            <h3>
+                                                Skills list
+                                            </h3>
+                                            <p>
+                                            <form method="post" action="{{ path('comp1') }}">
+
+                                                <input type="text" name="cp" class="form-control" placeholder="Add Skill" style="width:100%"></br>
+                                                <input type="submit" class="form-control" value="Add Skill" style="width:100%">
+                                            </form>
+
+
+                                            </p>
+                                            <p>
+
+                                            </p>
+
+                                        </div>
+                                </div>
+                            </div>
+                            </form>
+                            <div class="col-md-4">
+                                <div class="thumbnail">
+                                    <p style="color: #222222">Skills Affected</p>
+                                    <div class="caption">
+                                        <h3>
+
+                                        </h3>
+                                                               <select class="form-control" name="idc" multiple="true" style="width: 100%">
+
+                                            {% for e in rs  %}
+                                                <option value="{{ e.id }}" >
+                                                    {{ e.nomCompetance}}
+                                                </option>
+
+                                            {% endfor %}
+
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thumbnail">
+                                    <p style="color: #222222">Delete Skill</p>
+                                    <div class="caption">
+                                        <h3>
+                                            <form method="post" action="{{ path('compd') }}">
+
+                                                <select class="form-control" name="idc" multiple="true" style="width: 100%">
+                                                    {% for e in rs  %}
+                                                        <option value="{{ e.id }}" >
+                                                            {{ e.nomCompetance}}
+                                                        </option>
+
+                                                    {% endfor %}
+                                                </select><br>
+                                                <input type="submit" value="Delete" class="form-control" style="width: 100%">
+
+                                            </form>
+                                        </h3>
+                                        <p>
+                                        </p>
+                                        <p>
+
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Resume</div>
+                    <div class="panel-body" style="color: #222222">
+                        {{ user.resume }}
+
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">skills</div>
+                    <div class="panel-body" style="color: #222222">
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+
+                            <table>
+                        {% for e in rs  %}
+                            <tr><td>
+                           {{ e.nomCompetance}}
+                                    <p>___________________</p>
+                                </td>
+
+                            </tr>
+                        {% endfor %}
+                        </table>
+                                </div>
+                            <div class="col-sm-6 form-group">
+
+                                <table>
+                                    {% for e in X  %}
+
+                                        <tr>
+
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ e }}" aria-valuemin="0" aria-valuemax="100" style="width:20%">
+{{ e }}
+                                                    </div></div><br>
+
+
+
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+</div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+            <div id="push"></div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span3">
+                <p>
+
+                </p>
+            </div>
+
+        </div>
+
+
+        {% endblock contenu %}

@@ -1,0 +1,94 @@
+{% extends "MyAppUserBundle::layout4.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block contenu %}
+<head>
+
+    <link href="{{ asset('MyApp/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('MyApp/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('MyApp/css/style3.css') }}" rel="stylesheet">
+    <link href="{{ asset('MyApp/css/style5.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href=""{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') }}">
+
+
+</head>
+    <form>
+<h3> Welcome Mr {{ app.user.username }} </h3>
+
+
+    <center>
+
+
+
+
+
+
+
+            {% for m in pagination %}
+
+
+
+
+
+                        <div >
+
+                            <div>
+                                <div class="media">
+
+                                    <h4>
+                                <p>    Nom de l'entreprise : <td> <a href ="{{ path('Page_Entreprise',{'id':m.id })}}">  {{ m.nomentreprise}}</a></td></p>
+
+                                    <p>     <p> Poste : <td >{{ m.poste }}</td></p>
+                                    <p> Domaine : <td >{{ m.domaine }}</td></p>
+                                    <p> Contenu: <td >{{ m.contenu }}</td></p> </div>
+                                <td> <a href ="{{ path('Update_Offre',{'id':m.id })}}"> <button type="button" class="btn btn-default">Update</button></a></td>
+                                <td> <a href ="{{ path('Delete_Offre',{'id':m.id })}}"> <button type="button" class="btn btn-default">Delete</button></a></td>
+
+                                </p>
+                                </h4>
+                                <hr>
+
+
+
+
+
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+
+
+                    {% endfor %}
+
+
+
+                </div>
+
+
+</div>
+                </div>
+
+    </center>
+
+
+
+
+
+
+
+    </form>
+
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+
+
+
+
+{% endblock contenu %}

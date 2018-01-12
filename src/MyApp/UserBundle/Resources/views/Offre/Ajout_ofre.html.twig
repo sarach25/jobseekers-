@@ -1,0 +1,60 @@
+{% extends "MyAppUserBundle::layout3.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block contenu %}
+    <head>
+
+        <link href="{{ asset('MyApp/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('MyApp/css/style3.css') }}" rel="stylesheet">
+
+
+    </head>
+
+    {{ form_start (formes) }}
+
+    <form name="offre_form" method="get">
+        <div id="offre_form">
+
+            <div class="form-group row">
+            <div>
+                <label for="inputnom" class="col-sm-4 control-label">  Nomentreprise</label>
+                <input type="text" id="offre_form_nomentreprise" name="offre_form[nomentreprise]" maxlength="254" class = "form-control">
+            </div>
+            </div>
+
+
+                <div class="form-group row">
+            <div>  <label for="inputnom" class="col-sm-4 control-label"> Poste</label>
+
+                <input type="text" id="offre_form_poste" name="offre_form[poste]" maxlength="254" class = "form-control">
+            </div>
+                </div>
+
+
+
+                    <div class="form-group row">
+            <div>
+                <label for="inputnom" class="col-sm-4 control-label"> Domaine</label>
+                <input type="text" id="offre_form_domaine" name="offre_form[domaine]" maxlength="254" class = "form-control">
+            </div>
+                    </div>
+
+
+                        <div class="form-group row">
+
+            <div>
+                <label for="inputnom" class="col-sm-4 control-label"> Contenu</label>
+                <textarea type="text" id="offre_form_contenu" name="offre_form[contenu]" maxlength="254" class = "form-control">
+                </textarea>
+            </div>
+                        </div>
+            <div>
+                <button type="submit" id="offre_form_Modifier" name="offre_form[Modifier]" class="btn btn-default">Ajouter</button>
+            </div>
+        </div>
+        {{ form_widget(formes._token) }}
+    </form>
+
+
+
+{% endblock contenu %}
